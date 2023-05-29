@@ -49,7 +49,7 @@
 
 <h1 class="text-center text-xl">Create an Account to Post a Job</h1>
 <div class="text-center">
-    <a class="link-hover italic text-xs" href="/login">Already have an account? Click here to login instead.</a>
+    <a class="link-hover italic text-xs" href="/login">Already have an account? Click here to login instead!.</a>
 </div>
 <div class="flex justify-center items-center mt-8">
     <form on:submit={createUser} class="w-1/3">
@@ -57,7 +57,7 @@
             <label class="label" for="username">
                 <span class="label-text">Username</span>
             </label>
-            <input type="text" name="username" placeholder="johndoe" class="input input-bordered w-full" />
+            <input type="text" name="username" placeholder="johndoe" class="input input-bordered w-full" required />
             {#if 'username' in formErrors}
             <label class="label" for="username">
                 <span class="label-text-alt text-red-500">{formErrors['username'].message}</span>

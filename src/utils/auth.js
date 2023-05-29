@@ -1,17 +1,16 @@
 import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
 import { writable } from 'svelte/store';
 
-function setLogIn() {
-    const { subcribe, set } = writable(false);
-    return {
-        subcribe,
-        login: () => true,
-        logout: () => false
-    }
-}
+// function setLogIn() {
+//     const { subcribe, set } = writable(false);
+//     return {
+//         subcribe,
+//         login: () => set(true),
+//         logout: () => set(false)
+//     }
+// }
 
-export const isLogged = setLogIn();
-const isLogged = writable(false)
+export const isLogged = writable(false);
 
 const emptyAuth = {
     "token": "",
@@ -20,14 +19,15 @@ const emptyAuth = {
 
 export function logOut() {
     localStorage.setItem("auth", JSON.stringify(emptyAuth));
-    isLogged.logout();
+    // isLogged.logout;
+    isLogged.set(false);
     return true;  
 }
 
 export function getUserID() {
     const auth = localStorage.getItem("auth");
     if (auth) {
-        return JSON.parse(auth)['userID'];
+        return JSON.parse(auth)['userId'];
     }
     return null;
 }
@@ -58,7 +58,8 @@ export async function isLoggedIn() {
                 'token': res.token,
                 'userID': res.record.id
             }));
-            isLogged.login();
+            // isLogged.login;
+            isLogged.set(true);
             return true;
         }
         return false;
@@ -90,14 +91,15 @@ export async function authenticateUser(username, password) {
         'userId': res.record.id
 
     }));
-    isLogged.login();
+    //isLogged.login;
+    isLogged.set(true);
     return {
         success: true,
         res: res
     }
   }
   return {
-    success: true,
+    success: false,
     res: res
   }
 }

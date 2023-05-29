@@ -15,6 +15,9 @@
         if (res.success) {
             goto('/')
         }
+        else {
+			throw("username or password incorrect");
+        }
     }
     
     
@@ -48,7 +51,10 @@
 		/>
 	</div>
     <div class="form-control w-full mt-4">
-		<button class="btn" on:submit={authenticateUser}>Log In</button>
+		<button class="btn">Log In</button>
+	</div>
+	<div class="text-center">
+    	<a class="link-hover italic text-xs" href="/users/new">Don't have an account yet? Click here to sign-up instead!.</a>
 	</div>
 </form>
 </div>
