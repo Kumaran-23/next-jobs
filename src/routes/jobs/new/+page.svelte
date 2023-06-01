@@ -3,13 +3,15 @@
   import { goto } from '$app/navigation';
   import { getUserID } from '../../../utils/auth.js';
   let formErrors = {};
+  let clicked = false; 
 
   function postJob() {
     goto("/jobs/jobData.user");
   }
 
   async function createJob(evt) {
-    evt.preventDefault()
+    evt.preventDefault();
+    clicked = true;
     const getLocalData = getUserID();
 
     const jobData = {
@@ -149,7 +151,11 @@
         </div>
 
         <div class="form-control w-full mb-10">
-            <button class="btn btn-md">Post Job</button>
+            {#if clicked}
+                <button class="btn btn-md bg-purple-700 hover:bg-purple-800 loading">Post Job</button>
+            {:else}
+                <button class="btn btn-md bg-purple-700 hover:bg-purple-800">Post Job</button>
+            {/if}
         </div>
     </form>
 </div>

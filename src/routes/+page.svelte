@@ -8,19 +8,19 @@ export let data;
     <a href='users/new'>Create Account</a>
     </button>
 </div> -->
-<h1 class="text-center text-xl font-bold">Find Your Next Job</h1>
+<h1 class="text-center text-xl font-bold" dark>Find Your Next Job</h1>
 
-<div class="overflow-x-auto w-full">
+<div class="overflow-hidden grid grid-cols-4 gap-4">
   {#each data.jobs as job}
-    <div class="flex flex-col mt-10">
-      <div>
+    <div class="flex flex-col mt-6 mb-6 card bg-primary hover:bg-primary-focus" data-theme="flex flex-col mt-6 mb-6 card bg-secondary hover:bg-secondary-focus">
+      <div class="card-body">
         <a class="font-bold text-2xl" href="/jobs/{job.id}">{job.title}</a>
         <div class="text-sm mt-1">
           {job.employer} . {job.location} . <span class="text-sm">USD {humanize.formatNumber(job.minAnnualCompensation)} - USD {humanize.formatNumber(job.maxAnnualCompensation)}</span>
         </div>
         <div class="italic text-xs opacity-50 mt-2">posted {new Date(job.created).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}</div>
       </div>
-      <div class="mt-4 ">
+      <div class="mt-2 card-body">
         {job.description.slice(0, 240)}...
       </div>
     </div>
