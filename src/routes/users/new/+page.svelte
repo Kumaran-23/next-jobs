@@ -45,11 +45,12 @@
     } else {
       const res = await resp.json();
       formErrors = res.data;
+      clicked = false;
     }
   }
 </script>
 
-<h1 class="text-center text-xl text-violet-300">Create an Account to Post a Job</h1>
+<h1 class="text-center text-xl">Create an Account to Post a Job</h1>
 <div class="text-center hover">
     <a class="link-hover italic text-xs" href="/login">Already have an account? Click here to login instead!.</a>
 </div>
@@ -57,7 +58,7 @@
     <form on:submit={createUser} class="w-1/3">
         <div class="form-control w-full">
             <label class="label" for="username">
-                <span class="label-text text-violet-300">Username</span>
+                <span class="label-text ">Username</span>
             </label>
             <input type="text" name="username" placeholder="johndoe" class="input input-bordered w-full" required />
             {#if 'username' in formErrors}
@@ -69,7 +70,7 @@
 
         <div class="form-control w-full">
             <label class="label" for="email">
-                <span class="label-text text-violet-300">Email</span>
+                <span class="label-text ">Email</span>
             </label>
             <input type="email" name="email" placeholder="john@example.com" class="input input-bordered w-full" required />
             {#if 'email' in formErrors}
@@ -81,7 +82,7 @@
 
         <div class="form-control w-full">
             <label class="label" for="password">
-                <span class="label-text text-violet-300">Password</span>
+                <span class="label-text ">Password</span>
             </label>
             <input type="password" name="password" placeholder="" class="input input-bordered w-full" required />
             {#if 'password' in formErrors}
@@ -93,7 +94,7 @@
 
         <div class="form-control w-full">
             <label class="label" for="password">
-                <span class="label-text text-violet-300">Confirm Password</span>
+                <span class="label-text ">Confirm Password</span>
             </label>
             <input type="password" name="password-confirmation" placeholder="" class="input input-bordered w-full" required />
             {#if 'password' in formErrors}
@@ -105,9 +106,9 @@
 
         <div class="form-control w-full mt-4">
           {#if clicked}
-            <button class="btn btn-md bg-purple-700 hover:bg-purple-800 loading">Create an Account</button>
+            <button class="btn btn-md btn-primary hover:btn-accent loading">Create an Account</button>
           {:else}
-            <button class="btn btn-md bg-purple-700 hover:bg-purple-800">Create an Account</button>
+            <button class="btn btn-md btn-primary hover:btn-accent">Create an Account</button>
           {/if}
         </div>
     </form>

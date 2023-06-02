@@ -56,7 +56,7 @@ export async function isLoggedIn() {
         if (resp.status === 200) {
             localStorage.setItem("auth", JSON.stringify({
                 'token': res.token,
-                'userID': res.record.id
+                'userId': res.record.id
             }));
             // isLogged.login;
             isLogged.set(true);

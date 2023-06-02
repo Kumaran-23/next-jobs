@@ -41,6 +41,7 @@
       else {
       const res = await resp.json();
       formErrors = res.data;
+      clicked = false;
     }
   }
 </script>
@@ -152,9 +153,9 @@
 
         <div class="form-control w-full mb-10">
             {#if clicked}
-                <button class="btn btn-md bg-purple-700 hover:bg-purple-800 loading">Post Job</button>
+                <button class="btn btn-md btn-primary hover:btn-accent loading">Post Job</button>
             {:else}
-                <button class="btn btn-md bg-purple-700 hover:bg-purple-800">Post Job</button>
+                <button class="btn btn-md btn-primary hover:btn-accent">Post Job</button>
             {/if}
         </div>
     </form>

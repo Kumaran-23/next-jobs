@@ -8,11 +8,11 @@ export let data;
     <a href='users/new'>Create Account</a>
     </button>
 </div> -->
-<h1 class="text-center text-xl font-bold" dark>Find Your Next Job</h1>
-
-<div class="overflow-hidden grid grid-cols-4 gap-4">
+<h1 class="text-center text-xl font-bold mb-10">Find Your Next Job</h1>
+<div class="flex items-center">
+  <div class="overflow-hidden text-center flex flex-col items-center">
   {#each data.jobs as job}
-    <div class="flex flex-col mt-6 mb-6 card bg-primary hover:bg-primary-focus" data-theme="flex flex-col mt-6 mb-6 card bg-secondary hover:bg-secondary-focus">
+    <div class="mt-6 mb-5 card w-4/6 bg-primary hover:bg-accent-focus shadow-xl hover:transition delay-150 hover:translate-x-16 hover:skew-x-6 ">
       <div class="card-body">
         <a class="font-bold text-2xl" href="/jobs/{job.id}">{job.title}</a>
         <div class="text-sm mt-1">
@@ -25,4 +25,5 @@ export let data;
       </div>
     </div>
   {/each}
+</div>
 </div>
