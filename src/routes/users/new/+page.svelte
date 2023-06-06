@@ -38,15 +38,17 @@
       const res = await authenticateUser(userData.username, userData.password);
 
       if (res.success) {
+         console.log(clicked);
         postSignUp();
-      } else {
-        throw 'Sign up succeeded but authentication failed';
       }
-    } else {
+      else {
+      clicked = false;
+      console.log(clicked)
       const res = await resp.json();
       formErrors = res.data;
-      clicked = false;
     }
+        
+    } 
   }
 </script>
 

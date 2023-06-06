@@ -7,8 +7,12 @@ export default {
   },
   plugins: [require("daisyui"), require('@tailwindcss/typography'),],
   daisyui: {
-    themes: ["acid", "retro", "coffee"],
+    // themes: [{"retro": {
+    //       "primary": "blue",
+    //       "primary-focus": "mediumblue",
+    //     }},"acid", "coffee"],
     //darkTheme: ["forest"],
+    themes: ["retro", "acid", "coffee"],
     base: true,
       styled: true,
       utils: true,
