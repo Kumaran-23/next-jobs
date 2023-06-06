@@ -2,8 +2,7 @@
     import { authenticateUser, isLoggedIn} from "../../utils/auth";
     import { goto } from '$app/navigation';
     import { alerts } from "../../utils/alert";
-    import { afterNavigate } from '$app/navigation';
-
+    
 	let formErrors = {};
     let clicked = false;
 

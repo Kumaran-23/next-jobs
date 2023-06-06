@@ -15,6 +15,8 @@
 
     if (evt.target['password'].value != evt.target['password-confirmation'].value) {
       formErrors['password'] = { message: 'Password confirmation does not match' };
+      clicked = false;
+      console.log(clicked);
       return;
     }
 
@@ -38,16 +40,15 @@
       const res = await authenticateUser(userData.username, userData.password);
 
       if (res.success) {
-         console.log(clicked);
         postSignUp();
       }
+      
+    }
       else {
       clicked = false;
       console.log(clicked)
       const res = await resp.json();
-      formErrors = res.data;
-    }
-        
+      formErrors = res.data;  
     } 
   }
 </script>
