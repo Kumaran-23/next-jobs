@@ -6,7 +6,7 @@
   let clicked = false; 
 
   function postJob() {
-    goto("/jobs/jobData.user");
+    goto("/");
   }
 
   async function createJob(evt) {
